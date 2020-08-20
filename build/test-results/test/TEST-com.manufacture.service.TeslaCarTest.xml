@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.manufacture.service.TeslaCarTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-08-19T18:57:08" hostname="Akshays-MacBook-Pro.local" time="0.039">
+  <properties/>
+  <testcase name="test_manufactureCar_tesla" classname="com.manufacture.service.TeslaCarTest" time="0.039"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
