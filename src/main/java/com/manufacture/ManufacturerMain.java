@@ -8,22 +8,35 @@ import java.util.Scanner;
 public class ManufacturerMain {
 
     public static void main(String[] args) {
-        try {
-            CarManufactureService carManufactureService = new CarManufactureService();
-            Scanner scanner = new Scanner(System.in);
 
-            System.out.println("Welcome To Car Manufacture Service");
-            System.out.println("Choose your car model");
-            String clintModelName = scanner.next();
+        CarManufactureService carManufactureService = new CarManufactureService();
+        Car car = new Car();
+        Scanner scanner = new Scanner(System.in);
+        boolean flag = true;
 
-            ModelName modelName = ModelName.valueOf(clintModelName.toUpperCase());
-            Car car = carManufactureService.manufactureCar(modelName);
+        System.out.println("Welcome To Car Manufacture Service");
+        System.out.println("Choose your car model :");
+        System.out.println("1. FERRARI");
+        System.out.println("2. TATA");
+        System.out.println("3. TESLA");
+        int choice = scanner.nextInt();
+        switch (choice) {
+            case 1:
+                car = carManufactureService.manufactureCar(ModelName.FERRARI);
+                break;
+            case 2:
+                car = carManufactureService.manufactureCar(ModelName.TATA);
+                break;
+            case 3:
+                car = carManufactureService.manufactureCar(ModelName.TESLA);
+                break;
+            default:
+                System.out.println("Please enter valid Model Name!!!!!!!");
+                flag = false;
 
-            System.out.println("Model name " + car.getModelName());
-            System.out.println("Feature of car " + car.getCarFeatures());
-
-        } catch (IllegalArgumentException e) {
-            System.out.println("Please enter valid Model Name!!!!!!!");
         }
+
+        if (flag)
+            System.out.println("Car Manufactured with Model Name : " + car.getModelName() + "\twith feature: " + car.getCarFeatures());
     }
 }
