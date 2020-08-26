@@ -1,15 +1,14 @@
 package com.manufacture;
 
 import com.manufacture.enums.ModelName;
-import com.manufacture.factory.CarFactory;
 import com.manufacture.interfaces.CarInterface;
-import com.manufacture.model.Car;
+import com.manufacture.model.CarProperty;
 import org.junit.Assert;
 import org.junit.Test;
 
 import static org.mockito.Mockito.*;
 
-public class CarManufactureServiceTest {
+public class CarPropertyManufactureServiceTest {
 
     @Test
     public void test_should_manufactureCar_withFeature1() {
@@ -17,13 +16,13 @@ public class CarManufactureServiceTest {
         mockStatic(ModelName.class);
         CarInterface carInterface = mock(CarInterface.class);
         mockStatic(CarFactory.class);
-        Car car = mock(Car.class);
+        CarProperty carProperty = mock(CarProperty.class);
 
         when(CarFactory.getCarDetails(any(ModelName.class))).thenReturn(carInterface);
-        when(carInterface.manufactureCar(any(Car.class))).thenReturn(car);
+        when(carInterface.manufactureCar(any(CarProperty.class))).thenReturn(carProperty);
 
-        Car actualCar = carManufactureService.manufactureCar(ModelName.FERRARI);
+        CarProperty actualCarProperty = carManufactureService.manufactureCar(ModelName.FERRARI);
 
-        Assert.assertEquals(car, actualCar);
+        Assert.assertEquals(carProperty, actualCarProperty);
     }
 }
