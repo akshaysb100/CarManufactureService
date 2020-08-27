@@ -2,7 +2,7 @@ package com.manufacture;
 
 import com.manufacture.enums.Ability;
 import com.manufacture.enums.ModelName;
-import com.manufacture.service.CarFactory;
+import com.manufacture.service.ManufactureCar;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -17,7 +17,7 @@ public class ManufacturerMain {
         String color = "";
         String fuelType = "";
         int numberOfGear = 0;
-        CarFactory carFactory = null;
+        ManufactureCar manufactureCar = null;
 
         System.out.println("Welcome To Car Manufacture Service");
         System.out.println("Choose your car model :");
@@ -28,31 +28,31 @@ public class ManufacturerMain {
         try {
             switch (choice) {
                 case 1:
-                    System.out.println("Enter the Color :");
+                    System.out.println("Enter the Color(String value) :");
                     color = scanner.next();
-                    System.out.println("Enter the Type Of Fuel :");
+                    System.out.println("Enter the Type Of Fuel(String value) :");
                     fuelType = scanner.next();
-                    System.out.println("Enter the Number Of Gear :");
+                    System.out.println("Enter the Number Of Gear(Integer value) :");
                     numberOfGear = scanner.nextInt();
-                    carFactory = new CarFactory(ModelName.FERRARI, Ability.TO_FLY, color, fuelType, numberOfGear);
+                    manufactureCar = new ManufactureCar(ModelName.FERRARI, Ability.TO_FLY, color, fuelType, numberOfGear);
                     break;
                 case 2:
-                    System.out.println("Enter the Color :");
+                    System.out.println("Enter the Color(String value) :");
                     color = scanner.next();
-                    System.out.println("Enter the Type Of Fuel :");
+                    System.out.println("Enter the Type Of Fuel(String value) :");
                     fuelType = scanner.next();
-                    System.out.println("Enter the Number Of Gear :");
+                    System.out.println("Enter the Number Of Gear(Integer value) :");
                     numberOfGear = scanner.nextInt();
-                    carFactory = new CarFactory(ModelName.TESLA, Ability.TO_RUN_ON_BATTERY, color, fuelType, numberOfGear);
+                    manufactureCar = new ManufactureCar(ModelName.TESLA, Ability.TO_RUN_ON_BATTERY, color, fuelType, numberOfGear);
                     break;
                 case 3:
-                    System.out.println("Enter the Color :");
+                    System.out.println("Enter the Color(String value) :");
                     color = scanner.next();
-                    System.out.println("Enter the Type Of Fuel :");
+                    System.out.println("Enter the Type Of Fuel(String value) :");
                     fuelType = scanner.next();
-                    System.out.println("Enter the Number Of Gear :");
+                    System.out.println("Enter the Number Of Gear(Integer value) :");
                     numberOfGear = scanner.nextInt();
-                    carFactory = new CarFactory(ModelName.TATA, Ability.TO_PULL, color, fuelType, numberOfGear);
+                    manufactureCar = new ManufactureCar(ModelName.TATA, Ability.TO_PULL, color, fuelType, numberOfGear);
                     break;
                 default:
                     System.out.println("Please enter valid Choice!!!!!!!");
@@ -60,14 +60,15 @@ public class ManufacturerMain {
             }
 
             if (flag) {
-                System.out.println("Car Manufactured with Model Name : " + carFactory.modelName() +
-                        "\n Feature : " + carFactory.hasAbility() +
-                        "\n Color : " + carFactory.modelColor() +
-                        "\n Fuel type : " + carFactory.fuelType() +
-                        "\n Number Of Gears : " + carFactory.numberOfGear());
+                System.out.println("Car Manufactured !!!! " +
+                        "\n Model Name : " + manufactureCar.modelName() +
+                        "\n Feature : " + manufactureCar.hasAbility() +
+                        "\n Color : " + manufactureCar.modelColor() +
+                        "\n Fuel type : " + manufactureCar.fuelType() +
+                        "\n Number Of Gears : " + manufactureCar.numberOfGear());
             }
-        } catch (InputMismatchException e) {
-            System.out.println("Please enter valid input!!!!!");
+        } catch (InputMismatchException | NullPointerException e) {
+            System.out.println("Please enter valid input !!!!!");
         }
     }
 }

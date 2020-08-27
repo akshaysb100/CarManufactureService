@@ -1,16 +1,25 @@
 package com.manufacture.service;
 
+import com.manufacture.Utils;
 import com.manufacture.enums.Ability;
 import com.manufacture.enums.ModelName;
 import com.manufacture.model.Car;
 import com.manufacture.model.CarProperty;
 
-public class CarFactory {
+import java.util.Objects;
+
+public class ManufactureCar {
 
     private Car car;
 
-    public CarFactory(ModelName modelName, Ability features, String color, String fuelType, int numberOfGear) {
-        this.car = new Car(new CarProperty(modelName, color, fuelType, numberOfGear), features);
+    public ManufactureCar(ModelName modelName, Ability features, String color, String fuelType, int numberOfGear) {
+        try {
+            if (Objects.nonNull(color) && Objects.nonNull(fuelType) && Utils.checkNumberOfGear(numberOfGear)) {
+                this.car = new Car(new CarProperty(modelName, color, fuelType, numberOfGear), features);
+            }
+        } catch (IllegalArgumentException e) {
+            System.out.println("Inputs are null Or " + e.getMessage());
+        }
     }
 
     public Ability hasAbility() {
