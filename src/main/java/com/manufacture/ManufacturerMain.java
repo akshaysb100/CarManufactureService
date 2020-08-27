@@ -1,8 +1,9 @@
 package com.manufacture;
 
-import com.manufacture.enums.Ability;
-import com.manufacture.enums.ModelName;
-import com.manufacture.service.ManufactureCar;
+import com.manufacture.interfaces.NewCarModel;
+import com.manufacture.model.Ferrari;
+import com.manufacture.model.Tata;
+import com.manufacture.model.Tesla;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -17,7 +18,7 @@ public class ManufacturerMain {
         String color = "";
         String fuelType = "";
         int numberOfGear = 0;
-        ManufactureCar manufactureCar = null;
+        NewCarModel car = null;
 
         System.out.println("Welcome To Car Manufacture Service");
         System.out.println("Choose your car model :");
@@ -34,7 +35,7 @@ public class ManufacturerMain {
                     fuelType = scanner.next();
                     System.out.println("Enter the Number Of Gear(Integer value) :");
                     numberOfGear = scanner.nextInt();
-                    manufactureCar = new ManufactureCar(ModelName.FERRARI, Ability.TO_FLY, color, fuelType, numberOfGear);
+                    car = new Ferrari(color, fuelType, numberOfGear);
                     break;
                 case 2:
                     System.out.println("Enter the Color(String value) :");
@@ -43,7 +44,7 @@ public class ManufacturerMain {
                     fuelType = scanner.next();
                     System.out.println("Enter the Number Of Gear(Integer value) :");
                     numberOfGear = scanner.nextInt();
-                    manufactureCar = new ManufactureCar(ModelName.TESLA, Ability.TO_RUN_ON_BATTERY, color, fuelType, numberOfGear);
+                    car = new Tata(color, fuelType, numberOfGear);
                     break;
                 case 3:
                     System.out.println("Enter the Color(String value) :");
@@ -52,7 +53,7 @@ public class ManufacturerMain {
                     fuelType = scanner.next();
                     System.out.println("Enter the Number Of Gear(Integer value) :");
                     numberOfGear = scanner.nextInt();
-                    manufactureCar = new ManufactureCar(ModelName.TATA, Ability.TO_PULL, color, fuelType, numberOfGear);
+                    car = new Tesla(color, fuelType, numberOfGear);
                     break;
                 default:
                     System.out.println("Please enter valid Choice!!!!!!!");
@@ -60,12 +61,11 @@ public class ManufacturerMain {
             }
 
             if (flag) {
-                System.out.println("Car Manufactured !!!! " +
-                        "\n Model Name : " + manufactureCar.modelName() +
-                        "\n Feature : " + manufactureCar.hasAbility() +
-                        "\n Color : " + manufactureCar.modelColor() +
-                        "\n Fuel type : " + manufactureCar.fuelType() +
-                        "\n Number Of Gears : " + manufactureCar.numberOfGear());
+                car.modelName();
+                car.hasAbilities();
+                car.hasColor();
+                car.hasFuelType();
+                car.hasNumberOfGears();
             }
         } catch (InputMismatchException | NullPointerException e) {
             System.out.println("Please enter valid input !!!!!");

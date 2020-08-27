@@ -1,4 +1,4 @@
-package com.manufacture;
+package com.manufacture.unitls;
 
 public class Utils {
 

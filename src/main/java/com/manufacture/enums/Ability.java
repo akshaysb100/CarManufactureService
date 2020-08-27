@@ -1,5 +1,5 @@
 package com.manufacture.enums;
 
 public enum Ability {
-    TO_FLY, TO_PULL, TO_RUN_ON_BATTERY
+    FLY, PULL, RUN_ON_BATTERY
 }

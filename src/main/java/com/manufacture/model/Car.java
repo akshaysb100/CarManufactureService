@@ -1,21 +1,33 @@
 package com.manufacture.model;
 
-import com.manufacture.enums.Ability;
+import com.manufacture.enums.ModelName;
 
 public class Car {
-    private Ability ability;
-    private CarProperty property;
+    private ModelName modelName;
+    private String color;
+    private String fuelType;
+    private int numberOfGear;
 
-    public Car(CarProperty property, Ability ability) {
-        this.property = property;
-        this.ability = ability;
+    public Car(ModelName modelName, String color, String fuelType, int numberOfGear) {
+        this.modelName = modelName;
+        this.color = color;
+        this.fuelType = fuelType;
+        this.numberOfGear = numberOfGear;
     }
 
-    public Ability getAbility() {
-        return ability;
+    public ModelName getModelName() {
+        return modelName;
     }
 
-    public CarProperty getProperty() {
-        return property;
+    public String getColor() {
+        return color;
+    }
+
+    public String getFuelType() {
+        return fuelType;
+    }
+
+    public int getNumberOfGear() {
+        return numberOfGear;
     }
 }

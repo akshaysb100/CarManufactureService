@@ -2,7 +2,6 @@ package com.manufacture;
 
 import com.manufacture.enums.ModelName;
 import com.manufacture.interfaces.CarInterface;
-import com.manufacture.model.CarProperty;
 import org.junit.Assert;
 import org.junit.Test;
 
