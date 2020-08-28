@@ -31,10 +31,9 @@ public class Tata extends Functionaries implements NewCarModel {
         return super.pull();
     }
 
-
     @Override
     public void hasAbilities() {
-        System.out.println("Ferrari can : " + abilities);
+        System.out.println("Tata can : " + abilities);
     }
 
     @Override

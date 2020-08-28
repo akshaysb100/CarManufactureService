@@ -27,14 +27,13 @@ public class Tesla extends Functionaries implements NewCarModel {
     }
 
     @Override
-    public Ability pull() {
+    public Ability runOnBattery() {
         return super.runOnBattery();
     }
 
-
     @Override
     public void hasAbilities() {
-        System.out.println("Ferrari can : " + abilities);
+        System.out.println("Tesla can : " + abilities);
     }
 
     @Override

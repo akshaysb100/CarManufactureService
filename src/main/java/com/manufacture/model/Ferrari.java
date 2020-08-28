@@ -33,12 +33,6 @@ public class Ferrari extends Functionaries implements NewCarModel {
     }
 
     @Override
-    public Ability pull() {
-        return super.pull();
-    }
-
-
-    @Override
     public void hasAbilities() {
         System.out.print("Ferrari can : ");
         for (int i = 0; i < abilities.size(); i++) {
